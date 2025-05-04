@@ -3,7 +3,7 @@ import { config } from "dotenv";
 const configFile = "../.env";
 config({ path: configFile });
 
-const { MONGO_URI, PORT, JWT_SECRET, NODE_ENV,CLOUDINARY_CLOUD_NAME,CLOUDINARY_API_KEY,CLOUDINARY_SECRET_KEY } =
+const { MONGO_URI, PORT, JWT_SECRET, NODE_ENV,CLOUDINARY_CLOUD_NAME,CLOUDINARY_API_KEY,CLOUDINARY_API_SECRET} =
     process.env;
 
     export default {
@@ -12,6 +12,6 @@ const { MONGO_URI, PORT, JWT_SECRET, NODE_ENV,CLOUDINARY_CLOUD_NAME,CLOUDINARY_A
         JWT_SECRET,
         CLOUDINARY_CLOUD_NAME,
         CLOUDINARY_API_KEY,
-        CLOUDINARY_SECRET_KEY,
+        CLOUDINARY_API_SECRET,
         env: NODE_ENV,
     };
