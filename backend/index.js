@@ -3,12 +3,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path";
-import config from "./config/config.js";
+import config from "./src/config/config.js";
 
-import { connectDB } from "./lib/db.js";
+import { connectDB } from "./src/lib/db.js";
 
-import authRoutes from "./routes/auth.route.js";
-import { app,server } from "./lib/socket.js";
+import authRoutes from "./src/routes/auth.route.js";
+import { app,server } from "./src/lib/socket.js";
 
 dotenv.config();
 const __dirname = path.resolve();
@@ -18,11 +18,11 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: "http://localhost:5173",
-    credentials: true, //for the cookies to be sent
+    credentials: true,
   })
 );
 
-app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes); //url starts with /api/auth will be handled by authRoutes
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
