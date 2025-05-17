@@ -9,7 +9,7 @@ import { connectDB } from "./lib/db.js";
 
 import authRoutes from "./routes/auth.route.js";
 import { app,server } from "./lib/socket.js";
-
+import messageRoutes from "./routes/message.route.js";
 dotenv.config();
 const __dirname = path.resolve();
 
@@ -19,13 +19,16 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: 'http://localhost:5174', // or use a specific origin / function for whitelist
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, //for the cookies to be sent
   })
   
 );
 
 app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
