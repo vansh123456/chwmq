@@ -1,7 +1,7 @@
-import { config } from "dotenv";
+import { config } from "dotenv"
 
 const configFile = "../.env";
-config({ path: configFile });
+config();
 
 const { MONGO_URI, PORT, JWT_SECRET, NODE_ENV,CLOUDINARY_CLOUD_NAME,CLOUDINARY_API_KEY,CLOUDINARY_API_SECRET} =
     process.env;

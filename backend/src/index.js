@@ -19,7 +19,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: 'http://localhost:5173', // or use a specific origin / function for whitelist
+    origin: ['http://chwmq.vercel.app','http://localhost:5173'], // or use a specific origin / function for whitelist
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, //for the cookies to be sent
