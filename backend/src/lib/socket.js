@@ -5,10 +5,12 @@ import express from 'express';
 const app = express();
 const server = http.createServer(app);
 
-const io = new Server(server,{
-    cors: {
-        origin: ["https://chwmq.vercel.app/","http://localhost:5173"],
-      },
+const io = new Server(server, {
+  cors: {
+    origin: ["https://chwmq.vercel.app", "http://localhost:5173"],
+    methods: ['GET', 'POST'],
+    credentials: true,
+  },
 });
 
 export function getReceiverSocketId(userId){
