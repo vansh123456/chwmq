@@ -30,8 +30,8 @@ function App() {
       <Navbar/>
       
         <Routes>
-          <Route path='/hero' element={<Hero/>} />
-          <Route path='/' element={authUser ? <HomePage/> : <Navigate to= "/hero"/>} />
+          
+          <Route path='/' element={authUser ? <HomePage/> : <Hero/>} />
           <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
           <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
           <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />

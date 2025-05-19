@@ -2,11 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "./ui/button";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(() => ["Lovable :)", "Spicy!", "Emotional", "beautiful", "smart"], []);
-
+    const navigate = useNavigate();
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (titleNumber === titles.length - 1) {
@@ -58,13 +59,22 @@ return (
                     </p>
                 </div>
                 <div className="flex flex-row gap-3">
-                <Button  onClick={() => (window.location.href = "/signup")}size="lg" className="gap-4" variant="outline">
-              SignUp here
-            </Button>
+                <Button
+        onClick={() => navigate("/signup")}
+        size="lg"
+        className="gap-4"
+        variant="outline"
+      >
+        SignUp here
+      </Button>
 
-            <Button  onClick={() => (window.location.href = "/login")} size="lg" className="gap-4">
-              LogIn Now <MoveRight className="w-4 h-4" />
-            </Button>
+      <Button
+        onClick={() => navigate("/login")}
+        size="lg"
+        className="gap-4"
+      >
+        LogIn Now <MoveRight className="w-4 h-4" />
+      </Button>
                 </div>
             </div>
         </div>
